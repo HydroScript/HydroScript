@@ -1,2 +1,5 @@
 # HydroScript
-HydroScript is a dynamically-typed programming language transpiled to JavaScript
+
+HydroScript is a work-in-progress dynamically-typed programming language transpiled to JavaScript
+
+Contributions are appreciated!
