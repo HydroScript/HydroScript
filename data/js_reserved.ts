@@ -1,0 +1,22 @@
+export default {
+    "const": true,
+    "let": true,
+    "for": true,
+    "while": true,
+    "do": true,
+    "export": true,
+    "import": true,
+    "switch": true,
+    "break": true,
+    "continue": true,
+    "function": true,
+    "class": true,
+    "if": true,
+    "else": true,
+    "return": true,
+    "typeof": true,
+    "instanceof": true,
+    "in": true,
+    "of": true,
+    "new": true
+}
