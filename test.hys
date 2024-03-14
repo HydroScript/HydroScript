@@ -1,0 +1,17 @@
+count = 0
+hydros = 0
+hydroscript = 0
+count < 10000 -? {
+    random = Math.random() * 100
+    random > 50 ? {
+        hydroscript += 1
+        console.log("HydroScript +1")
+    } : {
+        hydros += 1
+        console.log("HydroS +1")
+    }
+    count += 1
+}
+console.log("HydroS:", hydros)
+console.log("HydroScript:", hydroscript)
+"p.s.: hydros 4994, hydroscript 5006"
