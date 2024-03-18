@@ -1,0 +1,7 @@
+Animal = ~~ {
+    age
+    >- age this.age = age
+    make_sound = >- () console.log("An animal made a sound...")
+}
+
+##Animal

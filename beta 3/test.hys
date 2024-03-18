@@ -1,0 +1,30 @@
+#Animal "./animal.mjs"
+
+Human = ~~ <~ Animal {
+    name
+    >- (age, name) {
+        super(age)
+        this.name = name
+    }
+    make_sound = >- speech {
+        super.make_sound()
+        console.log("Human", this.name, "said:", speech)
+    }
+}
+
+Student = ~~ <~ Human {
+    school
+    class
+    >- (age, name, school, class) {
+        super(age, name)
+        this.school = school
+        this.class = class
+    }
+    make_sound = >- speech super.make_sound(speech)
+    study = >- () console.log("Student", this.name, "is studying...")
+}
+
+john = => Student(17, "John", "South Harvard Institute of Technology", "1A")
+console.log(john)
+john.make_sound("Hello! My name is " + john.name)
+john.study()
