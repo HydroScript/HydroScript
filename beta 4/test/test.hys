@@ -1,0 +1,40 @@
+#Animal "./animal.mjs"
+
+Human = ~~ Animal {
+    name
+    alive = true
+    >- (age, name) {
+        super(age)
+        this.name = name
+    }
+    format_name = >- () "Human " + this.name
+    make_sound = >- speech {
+        super.make_sound()
+        super.action("Human", this.name, "said:", speech)
+    }
+}
+
+Student = ~~ Human {
+    school
+    class
+    alive = true
+    >- (age, name, school, class) {
+        super(age, name)
+        this.school = school
+        this.class = class
+    }
+    format_name = >- () "Student " + this.name
+    make_sound = >- speech super.make_sound(speech)
+    study = >- () super.action(this.format_name(), "is studying...")
+    suicide = >- () {
+        this.alive = false
+        super.action(this.format_name(), "jumped off a building")
+    }
+}
+
+john = => Student(17, "John", "South Harvard Institute of Technology", "1A")
+console.log(john)
+john.make_sound("Hello! My name is " + john.name)
+john.study()
+john.suicide()
+john.make_sound("Hello world!")

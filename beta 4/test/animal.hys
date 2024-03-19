@@ -1,0 +1,11 @@
+#TestError "./error.mjs"
+
+Animal = ~~ {
+    age
+    alive = true
+    >- age this.age = age
+    action = >- string this.alive ? console.log(string) : ;; => TestError("The animal is not alive")
+    make_sound = >- () this.action("An animal made a sound...")
+}
+
+##Animal

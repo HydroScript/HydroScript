@@ -1,0 +1,6 @@
+TestError = ~~ Error {
+    name = "TestError"
+    >- message super(message)
+}
+
+##TestError
