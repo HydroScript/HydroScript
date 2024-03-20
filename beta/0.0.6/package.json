@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "@types/node": "^20.11.30"
+  },
+  "dependencies": {
+    "hydroscript": "^0.0.5",
+    "typescript": "^5.4.2"
+  }
+}
