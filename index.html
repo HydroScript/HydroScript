@@ -14,35 +14,38 @@
             HydroScript
         </h1>
 
-        HydroScript is a work-in-progress dynamically-typed programming language compiled to JavaScript.
+        HydroScript is a work-in-progress dynamically-typed programming language transpiled to JavaScript.
         <br>
         The programming language is built based on JavaScript, but all keywords are replaced with operators.
         <br>
         The transpiler of the language is written in TypeScript and the language uses the file extension "hys".
         <br><br>
-        Example code:
-        <br>
+        <h3>Example</h3>
         JavaScript
         <pre>
-let count = 0;
-function isDoubleEven(number) {
-    return number % 2 % 2;
+<a class="kw">let</a> <a class="id">count</a> = <a class="num">0</a>;
+<a class="kw">function</a> <a class="id">isDoubleEven</a>(<a class="id">number</a>) {
+    <a class="kw">return</a> <a class="id">number</a> % <a class="num">2</a> % <a class="num">2</a>;
 }
-while (count <= 10000) {
-    count += 1;
-    console.log("The count is now", count);
-    if (count % 2) console.log(isDoubleEven(count) ? "Even even number!" : "Even number")
+<a class="kw">while</a> (<a class="id">count</a> <= <a class="num">10000</a>) {
+    <a class="id">count</a> += <a class="num">1</a>;
+    <a class="id">console</a>.<a class="id">log</a>(<a class="str">"The count is now"</a>, <a class="id">count</a>);
+    <a class="kw">if</a> (<a class="id">count</a> % <a class="num">2</a>) <a class="id">console</a>.<a class="id">log</a>(<a class="id">isDoubleEven</a>(<a class="id">count</a>) ? <a class="str">"Even even number!"</a> : <a class="str">"Even number"</a>);
 }
-console.log("Finished counting to 10000");</pre>
+<a class="id">console</a>.<a class="id">log</a>(<a class="str">"Finished counting to 10000"</a>);</pre>
         HydroScript
         <pre>
-count = 0
-isDoubleEven = >- number number % 2 % 2
-count <= 10000 -? {
-    count += 1
-    console.log("The count is now", count)
-    count % 2 ? console.log(isDoubleEven(count) ? "Even even number!" : "Even number")
+<a class="id">count</a> <a class="op">=</a> <a class="num">0</a>
+<a class="id">isDoubleEven</a> <a class="op">=</a> <a class="op">>-</a> <a class="id">number</a> <a class="id">number</a> <a class="op">%</a> <a class="num">2</a> <a class="op">%</a> <a class="num">2</a>
+<a class="id">count</a> <a class="op"><=</a> <a class="num">10000</a> <a class="op">-?</a> {
+    <a class="id">count</a> <a class="op">+=</a> <a class="num">1</a>
+    <a class="id">console</a>.<a class="id">log</a>(<a class="str">"The count is now"</a> <a class="id">count</a>)
+    <a class="id">count</a> <a class="op">%</a> <a class="num">2</a> <a class="op">?</a> <a class="id">console</a>.<a class="id">log</a>(<a class="id">isDoubleEven</a>(<a class="id">count</a>) <a class="op">?</a> <a class="str">"Even even number!"</a> <a class="op">:</a> <a class="str">"Even number"</a>)
 }
-console.log("Finished counting to 10000")</pre>
+<a class="id">console</a>.<a class="id">log</a>(<a class="str">"Finished counting to 10000"</a>)</pre>
+
+        <h3>Installation</h3>
+        Through Node.js:
+        <pre>npm install --global hydroscript</pre>
     </body>
 </html>
