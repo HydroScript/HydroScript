@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "removeComments": true,
+        "downlevelIteration": true,
+
+        "types": [
+            "node"
+        ],
+
+        "outDir": ".compiled"
+    }
+}
