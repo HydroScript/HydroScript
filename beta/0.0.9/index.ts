@@ -8,7 +8,7 @@ function compile(CODE: string) {
     const compiled = compiler.compile(parse(CODE))
     return compiled
 }
-const version = "0.0.10"
+const version = "0.0.9"
 function parse(CODE: string) {
     const parser = new Parser()
     return parser.produce(CODE)
