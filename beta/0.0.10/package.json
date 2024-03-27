@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "@types/node": "^20.11.30"
+  },
+  "dependencies": {
+    "chess.js": "^1.0.0-beta.8",
+    "generator-code": "^1.8.4",
+    "hydroscript": "^0.0.6",
+    "typescript": "^5.4.2"
+  }
+}
