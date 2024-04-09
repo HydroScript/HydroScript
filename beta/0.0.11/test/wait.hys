@@ -1,0 +1,2 @@
+wait=>-ms@@Promise(>-(resolve)setTimeout((resolve)ms))ms=5000>>-(){->wait(ms)console[["g""o""l"][["e""s""r""e""v""e""r"].reverse().join("")]().join("")]("I have just waited "+ms+" milliseconds!")}()
+<-wait
