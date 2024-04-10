@@ -1,0 +1,32 @@
+prompt = require("./prompt.js")
+
+console.log("Welcome to Guess the Number!")
+
+game = >>- () {
+    guesses = 0
+
+    secret_number = Math.floor(Math.random() * 100) + 1
+    console.log("I am currently thinking of a number between 1 and 100")
+
+    lowest = 1
+    highest = 100
+
+    guess != secret_number -? {
+        guess = null
+        !guess -? guess = parseInt(-> prompt("Enter your guess (between " + lowest + " and " + highest + "): "))
+        guesses += 1
+
+        guess == secret_number ? console.log("Congratulations! That was correct!")
+        : guess < secret_number ? {
+            console.log("Too low!")
+            lowest = Math.max(lowest guess)
+        } : {
+            console.log("Too high!")
+            highest = Math.min(highest guess)
+        }
+    }
+
+    <- guesses
+}
+
+game().then(>- result console.log("You guessed the correct number in" result "guesses"))
