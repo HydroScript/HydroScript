@@ -1,0 +1,5 @@
+u=7
+u?{u u}:u
+:options: {
+    to "python"
+}

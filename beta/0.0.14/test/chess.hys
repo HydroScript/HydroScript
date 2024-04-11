@@ -1,0 +1,64 @@
+prompt = require("./prompt.js")
+Chess = require("chess.js").Chess
+
+main = >>- () {
+
+    game = @Chess()
+    is_white = true
+    flipped = false
+
+    processBoard = >- ascii {
+        board = ascii
+            .replace("K" "♚")
+            .replace("Q" "♛")
+            .replace("R" "♜")
+            .replace("R" "♜")
+            .replace("B" "♝")
+            .replace("B" "♝")
+            .replace("N" "♞")
+            .replace("N" "♞")
+            .replaceAll("P" "♟︎")
+            .replace("k" "♔")
+            .replace("q" "♕")
+            .replace("r" "♖")
+            .replace("r" "♖")
+            .replace("b" "♗")
+            .replace("b" "♗")
+            .replace("n" "♘")
+            .replace("n" "♘")
+            .replaceAll("p" "♙")
+            .split("\n")
+        board[3] += "  Black"
+        board[4] += "  " + (is_white && game.inCheck() ? (game.isCheckmate() ? "Checkmate" : "Check") : "")
+        board[5] += "  " + (!is_white && game.inCheck() ? (game.isCheckmate() ? "Checkmate" : "Check") : "")
+        board[6] += "  White"
+        <- (flipped ? board.reverse() : board).join("\n")
+    }
+
+    getEndCondition = >- () {
+        game.isStalemate() ? <- "Draw: Stalemate"
+        game.isThreefoldRepetition() ? <- "Draw: Three Fold Repetition"
+        game.isInsufficientMaterial() ? <- "Draw: Insufficient Material"
+        game.isCheckmate() ? <- (is_white ? "Black won: Checkmate" : "White won: Checkmate")
+        <- "Game ended"
+    }
+
+    !game.isGameOver() -? {
+        console.log(processBoard(game.ascii()))
+        moves = game.moves()
+        move_display = moves.map(>- v (v.endsWith("#") || v.endsWith("+")) ? v.slice(0 0 - 1) : v)
+        move = ""
+        !move_display.includes(move) -? {
+            move = -> prompt("==========\nValid moves: " + move_display.join(" ") + "\n==========\nType \"FLIP\" to flip the board\nEnter " + (is_white ? "white" : "black") + "'s move: ")
+            move == "FLIP" ? {
+                flipped = !flipped
+                console.log(processBoard(game.ascii()))
+            }
+        }
+        game.move(moves[move_display.indexOf(move)])
+        is_white = !is_white
+    }
+    console.log("==========\n" + getEndCondition() + "\n==========\n\n" + processBoard(game.ascii()) + "\n==========\nPGN\n==========\n" + game.pgn())
+
+}
+main()
