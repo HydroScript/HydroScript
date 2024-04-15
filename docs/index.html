@@ -18,15 +18,13 @@
         <br>
         The programming language is built based on JavaScript, but all keywords are replaced with operators.
         <br>
-        The compiler of the language is written in TypeScript and the language uses the file extension "hys".
+        The compiled of the language is written in TypeScript and the language uses the file extension "hys".
         <br><br>
         <h3>Example</h3>
         JavaScript
         <pre>
 <a class="kw">let</a> <a class="id">count</a> = <a class="num">0</a>;
-<a class="kw">function</a> <a class="id">isDoubleEven</a>(<a class="id">number</a>) {
-    <a class="kw">return</a> <a class="id">number</a> % <a class="num">2</a> % <a class="num">2</a>;
-}
+<a class="kw">const</a> <a class="id">isDoubleEven</a>(<a class="id">number</a>) => <a class="id">number</a> % <a class="num">2</a> % <a class="num">2</a> == <a class="num">0</a>;
 <a class="kw">while</a> (<a class="id">count</a> <= <a class="num">10000</a>) {
     <a class="id">count</a> += <a class="num">1</a>;
     <a class="id">console</a>.<a class="id">log</a>(<a class="str">"The count is now"</a>, <a class="id">count</a>);
@@ -36,7 +34,7 @@
         HydroScript
         <pre>
 <a class="id">count</a> <a class="op">=</a> <a class="num">0</a>
-<a class="id">isDoubleEven</a> <a class="op">=</a> <a class="op">>-</a> <a class="id">number</a> <a class="id">number</a> <a class="op">%</a> <a class="num">2</a> <a class="op">%</a> <a class="num">2</a>
+<a class="id">isDoubleEven</a> <a class="op">=</a> <a class="op">>-</a> <a class="id">number</a> <a class="id">number</a> <a class="op">%</a> <a class="num">2</a> <a class="op">%</a> <a class="num">2</a> <a class="op">==</a> <a class="num">0</a>
 <a class="id">count</a> <a class="op"><=</a> <a class="num">10000</a> <a class="op">-?</a> {
     <a class="id">count</a> <a class="op">+=</a> <a class="num">1</a>
     <a class="id">console</a>.<a class="id">log</a>(<a class="str">"The count is now"</a> <a class="id">count</a>)
