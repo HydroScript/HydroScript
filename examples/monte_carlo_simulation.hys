@@ -17,7 +17,6 @@ mcs = >- n {
         current++
         pos = newPos()
 
-        total++
         inside++ #? Math.sqrt(pos.x ** 2 + pos.y ** 2) <= 5 // add if distance from center <= 5
     }
 
