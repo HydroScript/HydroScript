@@ -1,0 +1,34 @@
+// This example uses a 10x10 square and radius = 5 circle
+// This approximates PI by calculating the particles inside and outside of the circle
+
+// defining mcs function
+mcs = >- n {
+    // initial values
+    total = 0
+    inside = 0
+
+    // computing
+    newPos = >- () <- {
+        x   Math.random() * 10 - 5
+        y   Math.random() * 10 - 5
+    }
+
+    current = 0
+    current < n -? {
+        current++
+        pos = newPos()
+
+        total++
+        inside++ #? Math.sqrt(pos.x ** 2 + pos.y ** 2) <= 5 // add if distance from center <= 5
+    }
+
+    // returning
+    <- 4 * inside / total // approximate pi
+}
+
+// testing
+console.log(mcs(10))
+console.log(mcs(100))
+console.log(mcs(1000))
+console.log(mcs(10000))
+console.log(mcs(100000))

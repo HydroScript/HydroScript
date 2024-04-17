@@ -1,0 +1,19 @@
+// requires node.js
+
+// import readline
+readline = require("readline")
+
+// exporting and defining prompt function
+prompt = >- query {
+    // readline interface
+    rl = readline.createInterface({
+        input   process.stdin
+        output  process.stdout
+    })
+
+    // returning promise
+    <- @@Promise(>- resolve rl.question(query >- ans {
+        rl.close()
+        resolve(ans)
+    }))
+}
