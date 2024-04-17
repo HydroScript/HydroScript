@@ -4,7 +4,6 @@
 // defining mcs function
 mcs = >- n {
     // initial values
-    total = 0
     inside = 0
 
     // computing
@@ -23,7 +22,7 @@ mcs = >- n {
     }
 
     // returning
-    <- 4 * inside / total // approximate pi
+    <- 4 * inside / n // approximate pi
 }
 
 // testing
