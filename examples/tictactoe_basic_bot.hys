@@ -1,0 +1,113 @@
+// prompt function
+prompt = >- query {
+    readline = require("readline")
+
+    rl = readline.createInterface({
+        input   process.stdin
+        output  process.stdout
+    })
+
+    <- @@Promise(>- resolve rl.question(query >- ans {
+        rl.close()
+        resolve(ans)
+    }))
+}
+
+// initial values and utils
+board = [
+    null null null
+    null null null
+    null null null
+]
+copy = >- i Object.assign([] i)
+parseInput = >- str {
+    str.length != 2 ? <- null
+    items = str.split("")
+
+    row = parseInt(items[0])
+    column = items[1]
+    row != 1 && row != 2 && row != 3 ? <- null
+    column != "a" && column != "b" && column != "c" ? <- null
+    col_num = (column == "a" ? 1 : column == "b" ? 2 : 3)
+    
+    board[row * 3 + col_num - 4] ? <- null
+
+    <- {
+        row     row
+        column  col_num
+    }
+}
+randInput = >- () Math.abs(Math.round(Math.random() * 8.9999999 - 0.5))
+personWon = >- from {
+    i = 0 - 1
+    i++ < 2 -? (
+        from[i * 3] == from[i * 3 + 1] &&
+        from[i * 3 + 1] == from[i * 3 + 2] &&
+        from[i * 3] != null
+    ) ? <- from[i * 3]
+    j = 0 - 1
+    j++ < 2 -? (
+        from[j] == from[3 + j] &&
+        from[3 + j] == from[6 + j] &&
+        from[j] != null
+    ) ? <- from[j]
+    from[0] == from[4] &&
+    from[4] == from[8] &&
+    from[0] != null ? <- from[0]
+    from[2] == from[4] &&
+    from[4] == from[6] &&
+    from[2] != null ? <- from[2]
+    <- null
+}
+
+// main game
+game = >>- () {
+    // normal move function finds the move to either win or block (prioritizes winning), random otherwise
+    normalMove = >- () {
+        win_check = 0
+        win_check < 9 -? {
+            temp = copy(board)
+            temp[win_check] == null ? {
+                temp[win_check] = "O"
+                personWon(temp) ? <- win_check
+            }
+            win_check++
+        }
+        block_check = 0
+        block_check < 9 -? {
+            temp = copy(board)
+            temp[block_check] == null ? {
+                temp[block_check] = "X"
+                personWon(temp) ? <- block_check
+            }
+            block_check++
+        }
+        
+        move = randInput()
+        board[move] -? move = randInput()
+        <- move
+    }
+
+    // main loop
+    !personWon(board) || board.every(>- v v != null) -? {
+        console.log(
+            (board[0] ?? "_") + " " + (board[1] ?? "_") + " " + (board[2] ?? "_") + "\n" +
+            (board[3] ?? "_") + " " + (board[4] ?? "_") + " " + (board[5] ?? "_") + "\n" +
+            (board[6] ?? "_") + " " + (board[7] ?? "_") + " " + (board[8] ?? "_")
+        )
+
+        move = null
+        !move -? move = parseInput(-> prompt("Enter a valid move: "))
+        console.log("Your input was row" move.row "column" move.column)
+        
+        board[move.row * 3 + move.column - 4] = "X"
+
+        board.every(>- v v != null) ? <- (personWon(board) ? personWon(board) + " won!" : "Draw!")
+
+        ai_move = normalMove()
+
+        board[ai_move] = "O"
+    }
+    <- (personWon(board) ? personWon(board) + " won!" : "Draw!")
+}
+game().then(>- str console.log(str))
