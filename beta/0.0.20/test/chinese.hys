@@ -1,0 +1,3 @@
+文字 = "Hello world!"
+console.log(文字)
+;? {} ;: 23 {}
