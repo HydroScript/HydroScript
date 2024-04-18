@@ -1,0 +1,14 @@
+// defining factorial function
+factorial = >- n {
+    // computing
+    c = 0
+    r = 1
+    c < n -? r *= ++c
+
+    // returning
+    <- r
+}
+
+// testing
+console.log(factorial(5)) // 120
+console.log(factorial(7)) // 5040
