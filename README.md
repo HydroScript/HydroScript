@@ -4,4 +4,4 @@ HydroScript is a work-in-progress dynamically-typed programming language compile
 
 Contributions by posting issues are appreciated!
 
-You can contact me through admin@hyperknf.com
+You can contact me through contact@hydroscript.hyperknf.com
