@@ -1,0 +1,15 @@
+// times how long it took to run a function
+
+// defines the timing function
+time = >- f {
+	t = Date.now()
+	f()
+	<- Date.now() - t
+}
+
+// testing
+console.log(time(>- () {
+	i = 0
+	i <= 1000000000 -? i++
+	<- null
+}))
