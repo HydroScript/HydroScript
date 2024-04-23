@@ -8,8 +8,7 @@ time = >- f {
 }
 
 // testing
-console.log(time(>- () {
-	i = 0
-	i <= 1000000000 -? i++
+console.log(time(>- {
+	i <~~ 1..1000000000 -? {}
 	<- null
 }))

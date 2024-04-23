@@ -14,10 +14,10 @@ prompt = >- query {
     })
 
     // returning promise
-    <- @@Promise(>- resolve rl.question(query >- ans {
+    <- @@Promise(>- resolve (rl.question(query >- ans {
         rl.close()
         resolve(ans)
-    }))
+    })))
 }
 
 // functions and initial values
@@ -43,35 +43,33 @@ parseInput = >- str {
         column  col_num
     }
 }
-randInput = >- () {
+randInput = >- {
     row = [ "1" "2" "3" ]
     col = [ "a" "b" "c" ]
     <- row[Math.round(Math.random() * 3.99999 - 0.5)] + col[Math.round(Math.random() * 3.99999 - 0.5)]
 }
-personWon = >- () {
-    i = 0 - 1
-    i++ < 2 -? (
-        board[i * 3] == board[i * 3 + 1] &&
-        board[i * 3 + 1] == board[i * 3 + 2] &&
-        board[i * 3] != undefined
-    ) ? <- board[i * 3]
-    j = 0 - 1
-    j++ < 2 -? (
-        board[j] == board[3 + j] &&
-        board[3 + j] == board[6 + j] &&
-        board[j] != undefined
-    ) ? <- board[j]
-    board[0] == board[4] &&
-    board[4] == board[8] &&
-    board[0] != undefined ? <- board[0]
-    board[2] == board[4] &&
-    board[4] == board[6] &&
-    board[2] != undefined ? <- board[2]
+personWon = >- from {
+    i <~~ 0..2 -? (
+        from[i * 3] == from[i * 3 + 1] &&
+        from[i * 3 + 1] == from[i * 3 + 2] &&
+        from[i * 3] != null
+    ) ? <- from[i * 3]
+    j <~~ 0..2 -? (
+        from[j] == from[3 + j] &&
+        from[3 + j] == from[6 + j] &&
+        from[j] != null
+    ) ? <- from[j]
+    from[0] == from[4] &&
+    from[4] == from[8] &&
+    from[0] != null ? <- from[0]
+    from[2] == from[4] &&
+    from[4] == from[6] &&
+    from[2] != null ? <- from[2]
     <- null
 }
 
 // main game
-game = >>- () {
+game = >>- {
     !personWon() -? {
         console.log(
             (board[0] ?? "_") + " " + (board[1] ?? "_") + " " + (board[2] ?? "_") + "\n" +
@@ -92,4 +90,4 @@ game = >>- () {
     }
     <- personWon() + " won!"
 }
-game().then(>- str console.log(str))
+game().then(>- str (console.log(str)))

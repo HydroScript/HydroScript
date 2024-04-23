@@ -1,9 +1,8 @@
 // defining factorial function
 factorial = >- n {
     // computing
-    c = 0
     r = 1
-    c < n -? r *= ++c
+    c <~~ 1..n -? r *= c
 
     // returning
     <- r

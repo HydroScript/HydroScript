@@ -12,8 +12,8 @@ prompt = >- query {
     })
 
     // returning promise
-    <- @@Promise(>- resolve rl.question(query >- ans {
+    <- @@Promise(>- resolve (rl.question(query >- ans {
         rl.close()
         resolve(ans)
-    }))
+    })))
 }

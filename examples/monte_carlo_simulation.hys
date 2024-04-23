@@ -7,13 +7,12 @@ mcs = >- n {
     inside = 0
 
     // computing
-    newPos = >- () <- {
+    newPos = >- <- {
         x   Math.random() * 10 - 5
         y   Math.random() * 10 - 5
     }
 
-    current = 0
-    current < n -? {
+    current <~~ 1..n -? {
         current++
         pos = newPos()
 
