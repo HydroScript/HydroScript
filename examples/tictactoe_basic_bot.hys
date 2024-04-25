@@ -7,10 +7,10 @@ prompt = >- query {
         output  process.stdout
     })
 
-    <- @@Promise(>- resolve (rl.question(query >- ans {
+    <- @@Promise(>- resolve rl.question(query >- ans {
         rl.close()
         resolve(ans)
-    })))
+    }))
 }
 
 // initial values and utils
@@ -19,7 +19,7 @@ board = [
     null null null
     null null null
 ]
-copy = >- i (Object.assign([] i))
+copy = >- i Object.assign([] i)
 parseInput = >- str {
     str.length != 2 ? <- null
     items = str.split("")
@@ -37,7 +37,7 @@ parseInput = >- str {
         column  col_num
     }
 }
-randInput = >- (Math.abs(Math.round(Math.random() * 8.9999999 - 0.5)))
+randInput = >- Math.abs(Math.round(Math.random() * 8.9999999 - 0.5))
 personWon = >- from {
     i <~~ 0..2 -? (
         from[i * 3] == from[i * 3 + 1] &&
@@ -83,7 +83,7 @@ game = >>- {
     }
 
     // main loop
-    !personWon(board) || board.every(>- v (v != null)) -? {
+    !personWon(board) || board.every(>- v v != null) -? {
         console.log(
             (board[0] ?? "_") + " " + (board[1] ?? "_") + " " + (board[2] ?? "_") + "\n" +
             (board[3] ?? "_") + " " + (board[4] ?? "_") + " " + (board[5] ?? "_") + "\n" +
@@ -96,7 +96,7 @@ game = >>- {
         
         board[move.row * 3 + move.column - 4] = "X"
 
-        board.every(>- v (v != null)) ? <- (personWon(board) ? personWon(board) + " won!" : "Draw!")
+        board.every(>- v v != null) ? <- (personWon(board) ? personWon(board) + " won!" : "Draw!")
 
         ai_move = normalMove()
 
@@ -104,4 +104,4 @@ game = >>- {
     }
     <- (personWon(board) ? personWon(board) + " won!" : "Draw!")
 }
-game().then(>- str (console.log(str)))
+game().then(>- str console.log(str))

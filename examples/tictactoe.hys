@@ -14,10 +14,10 @@ prompt = >- query {
     })
 
     // returning promise
-    <- @@Promise(>- resolve (rl.question(query >- ans {
+    <- @@Promise(>- resolve rl.question(query >- ans {
         rl.close()
         resolve(ans)
-    })))
+    }))
 }
 
 // functions and initial values
@@ -90,4 +90,4 @@ game = >>- {
     }
     <- personWon() + " won!"
 }
-game().then(>- str (console.log(str)))
+game().then(>- str console.log(str))
