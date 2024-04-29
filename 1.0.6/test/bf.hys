@@ -1,0 +1,7 @@
+BF = require("bf-node").base
+
+data = require("fs").readFileSync( "./test/bf.bf" "utf-8" )
+
+start = Date.now()
+BF(data)
+console.log(Date.now() - start)
