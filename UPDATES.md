@@ -1,5 +1,15 @@
 # Updates
 
+### 1.0.8
+
+` - ` Static declarations now don't use the `=` operator
+
+` - ` Added getters and setters
+
+` - ` Fixed static properties of class having extra `_1` when using a JavaScript reserved word
+
+` - ` Split the README into two markdown files
+
 ### 1.0.7
 
 ` - ` Improved statement detection without `{` in function literals

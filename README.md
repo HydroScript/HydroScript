@@ -4,11 +4,15 @@ HydroScript is a dynamically-typed programming language compiled to JavaScript.
 
 Contributions through posting issues are appreciated.
 
-You can contact me through contact@hydroscript.hyperknf.com
+You can contact me through sending an email to contact@hydroscript.hyperknf.com
 
 ## Installation
 
 ``npm install --global hydroscript``
+
+The global flag is needed if you want to be able to use command line commands anywhere.
+
+Remove the `--global` flag if HydroScript should be installed as a dependency of your project
 
 ## Usage
 
@@ -17,31 +21,33 @@ You can contact me through contact@hydroscript.hyperknf.com
 JavaScript:
 
 ```
-const HydroScript = require("hydroscript")
+const HydroScript = require("HydroScript")
 HydroScript.repl()
 ```
 
 Command line:
 
 ```
-hydroscript
+HydroScript
 hys
 ```
+
+**All command line commands are not case-sensitive**
 
 ### Compile
 
 JavaScript:
 
 ```
-const HydroScript = require("hydroscript")
+const HydroScript = require("HydroScript")
 HydroScript.compile("source code goes here")
 ```
 
 Command line:
 
 ```
-hydroscript path/to/source/file.hys
-hydroscript path/to/source/file.hys path/to/output/file.js
+HydroScript path/to/source/file.hys
+HydroScript path/to/source/file.hys path/to/output/file.js
 hys path/to/source/file.hys
 hys path/to/source/file.hys path/to/output/file.js
 ```
@@ -51,15 +57,15 @@ hys path/to/source/file.hys path/to/output/file.js
 JavaScript:
 
 ```
-// command: node "path/to/javascript/file.js" "path/to/hydroscript/file.js"
-const HydroScript = require("hydroscript")
+// command: node "path/to/javascript/file.js" "path/to/source/file.js"
+const HydroScript = require("HydroScript")
 HydroScript.run()
 ```
 
 Command line:
 
 ```
-hydroscript_run path/to/source/file.hys
+HydroScript_run path/to/source/file.hys
 hys_run path/to/source/file.hys
 ```
 

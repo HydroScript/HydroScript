@@ -1,0 +1,23 @@
+// defining fibonacci function
+fibonacci = >- n {
+    // validating n
+    n <= 0 ? ;;@@Error("n cannot be less than 0!")
+
+    // initial values
+    values = [ 1 1 ]
+
+    // computing
+    c <: 3..n -? {
+        pull = values[0]
+        values[0] = values[0] + values[1]
+        values[1] = pull
+    }
+
+    // returning
+    <- values[0]
+}
+
+// testing
+console.log(fibonacci(3)) // 2
+console.log(fibonacci(5)) // 5
+console.log(fibonacci(7)) // 13
