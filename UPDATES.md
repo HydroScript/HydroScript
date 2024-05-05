@@ -1,5 +1,9 @@
 # Updates
 
+### 1.0.9
+
+` - ` Improved compiled for loops
+
 ### 1.0.8
 
 ` - ` Static declarations now don't use the `=` operator

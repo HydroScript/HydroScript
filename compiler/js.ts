@@ -331,11 +331,11 @@ export default class JavaScriptCompiler {
             }
 
             case "For": {
-                const initialize = this.compile_statement((statement.loop as ForLoop).initialize, true).raw
-                const condition = this.compile_statement((statement.loop as ForLoop).condition, true).raw
+                const initialize = this.compile_statement((statement.loop as ForLoop).initialize, false).raw
+                const condition = this.compile_statement((statement.loop as ForLoop).condition, false).raw
                 const afterthought = this.compile_statement((statement.loop as ForLoop).afterthought, false).raw
                 const body = this.compile_block((statement.loop as ForLoop).body, true).raw
-                return new Component(`for (${initialize} ${condition} ${afterthought}) ${body}`)
+                return new Component(`for (\n${initialize};\n${condition};\n${afterthought}\n) ${body}`)
             }
 
             case "ForIn": {
@@ -357,7 +357,7 @@ export default class JavaScriptCompiler {
     }
 
     private compile_try_statement(statement: TryStatement): Component {
-        const try_body = `try ${this.compile_statement(statement.try, false)}`
+        const try_body = `try ${this.compile_block(statement.try, false)}`
         let catch_body = ``
         let finally_body = ``
         if (statement.catch) catch_body = ` catch (${this.compile_identifier(statement.catch.identifier, false)}) ${this.compile_block(statement.catch.body, false)}`

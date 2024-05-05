@@ -13,7 +13,7 @@ function compile(CODE: string, path?: string): string {
     return compiled
 }
 
-const version = "1.0.8"
+const version = "1.0.9"
 
 function parse(CODE: string, path?: string): {
     object: "Program"
