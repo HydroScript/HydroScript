@@ -15,7 +15,7 @@ function compile(CODE, path) {
     return compiled;
 }
 exports.compile = compile;
-var version = "1.0.8";
+var version = "1.0.9";
 exports.version = version;
 function parse(CODE, path) {
     var parser = new parser_1.default(path);

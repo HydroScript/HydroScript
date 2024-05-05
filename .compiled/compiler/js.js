@@ -347,11 +347,11 @@ var JavaScriptCompiler = (function () {
                 return new component_1.default("while ".concat(condition.startsWith("(") ? condition : "(".concat(condition, ")"), " ").concat(body));
             }
             case "For": {
-                var initialize = this.compile_statement(statement.loop.initialize, true).raw;
-                var condition = this.compile_statement(statement.loop.condition, true).raw;
+                var initialize = this.compile_statement(statement.loop.initialize, false).raw;
+                var condition = this.compile_statement(statement.loop.condition, false).raw;
                 var afterthought = this.compile_statement(statement.loop.afterthought, false).raw;
                 var body = this.compile_block(statement.loop.body, true).raw;
-                return new component_1.default("for (".concat(initialize, " ").concat(condition, " ").concat(afterthought, ") ").concat(body));
+                return new component_1.default("for (\n".concat(initialize, ";\n").concat(condition, ";\n").concat(afterthought, "\n) ").concat(body));
             }
             case "ForIn": {
                 var in_expr = this.compile_in_expression(statement.loop.in, false, true).raw;
@@ -368,7 +368,7 @@ var JavaScriptCompiler = (function () {
         }
     };
     JavaScriptCompiler.prototype.compile_try_statement = function (statement) {
-        var try_body = "try ".concat(this.compile_statement(statement.try, false));
+        var try_body = "try ".concat(this.compile_block(statement.try, false));
         var catch_body = "";
         var finally_body = "";
         if (statement.catch)

@@ -1,6 +1,6 @@
 {
   "name": "hydroscript",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "HydroScript is a dynamically-typed programming language compiled to JavaScript",
   "main": "index.js",
   "scripts": {
