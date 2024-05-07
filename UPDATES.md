@@ -1,5 +1,9 @@
 # Updates
 
+### 1.1.0
+
+` - ` Added call expressions with `=>`
+
 ### 1.0.9
 
 ` - ` Improved compiled for loops
