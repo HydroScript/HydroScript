@@ -1,0 +1,35 @@
+{
+  "name": "hydroscript",
+  "version": "1.1.0",
+  "description": "HydroScript is a dynamically-typed programming language compiled to JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HydroScript/HydroScript.git"
+  },
+  "keywords": [
+    "hydroscript",
+    "hys",
+    "language",
+    "scripting",
+    "programming",
+    "compiler",
+    "script",
+    "javascript"
+  ],
+  "author": "HyperKNF <contact@hydroscript.hyperknf.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HydroScript/HydroScript/issues"
+  },
+  "homepage": "https://hydroscript.hyperknf.com/",
+  "bin": {
+    "hys": "bin/hydroscript",
+    "hydroscript": "bin/hydroscript",
+    "hys_run": "bin/run",
+    "hydroscript_run": "bin/run"
+  }
+}
