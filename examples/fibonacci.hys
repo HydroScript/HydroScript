@@ -8,7 +8,6 @@ fibonacci = >- n {
 
     // computing
     c <~~ 3..n -? {
-        c++
         pull = values[0]
         values[0] = values[0] + values[1]
         values[1] = pull
