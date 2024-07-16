@@ -12,7 +12,9 @@ You can contact me through sending an email to contact@hydroscript.hyperknf.com
 
 The global flag is needed if you want to be able to use command line commands anywhere.
 
-Remove the `--global` flag if HydroScript should be installed as a dependency of your project
+Remove the `--global` flag if HydroScript should be installed as a dependency of your project.
+
+To install HydroScript as a development dependency (a.k.a dev dependency), run `npm install --save-dev hydroscript`.
 
 ## Usage
 
@@ -73,4 +75,4 @@ hys_run path/to/source/file.hys
 
 ` - ` ISC License
 
-**This README file and all potential markdown files are parts of the project, and therefore is subject to protection of the license.**
+**This README file and all existing and potential markdown files are parts of the project, and therefore is subject to protection of the license.**

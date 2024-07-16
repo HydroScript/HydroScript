@@ -299,6 +299,9 @@ var Parser = (function () {
                         return _this.parse_numeric_literal();
                 }
             }
+            else if (current_token.value == "+" || current_token.value == "-") {
+                return _this.parse_unary_expression();
+            }
             else if (token_type == token_type_1.TokenType.RegularExpression) {
                 return _this.parse_regular_expression();
             }
@@ -371,6 +374,14 @@ var Parser = (function () {
             object: "Expression",
             kind: "LocalAssignmentExpression",
             assignment: expr
+        };
+    };
+    Parser.prototype.parse_unary_expression = function () {
+        return {
+            object: "Expression",
+            kind: "UnaryExpression",
+            sign: this.eat().value,
+            value: this.parse_primary_expression()
         };
     };
     Parser.prototype.parse_arithmetic_assignment = function (pre, id) {

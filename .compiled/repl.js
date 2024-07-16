@@ -98,3 +98,5 @@ function repl() {
     }); })();
 }
 exports.default = repl;
+if (require.main == module)
+    repl();

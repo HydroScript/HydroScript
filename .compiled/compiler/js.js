@@ -161,6 +161,8 @@ var JavaScriptCompiler = (function () {
                 return this.compile_class_literal(statement, is_main);
             case "BinaryExpression":
                 return this.compile_binary_expression(statement, is_main);
+            case "UnaryExpression":
+                return this.compile_unary_expression(statement, is_main);
             case "ComparisonExpression":
                 return this.compile_comparison_expression(statement, is_main);
             case "AssignmentExpression":
@@ -463,6 +465,10 @@ var JavaScriptCompiler = (function () {
     };
     JavaScriptCompiler.prototype.compile_binary_expression = function (expression, is_main) {
         var str = "".concat(this.compile_statement(expression.left, false), " ").concat(expression.operator, " ").concat(this.compile_statement(expression.right, false));
+        return new component_1.default(is_main ? "".concat(str, ";\n") : "(".concat(str, ")"));
+    };
+    JavaScriptCompiler.prototype.compile_unary_expression = function (expression, is_main) {
+        var str = "".concat(expression.sign).concat(this.compile_statement(expression.value, false));
         return new component_1.default(is_main ? "".concat(str, ";\n") : "(".concat(str, ")"));
     };
     JavaScriptCompiler.prototype.compile_comparison_expression = function (expression, is_main) {

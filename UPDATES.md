@@ -1,5 +1,9 @@
 # Updates
 
+### 1.1.1
+
+` - ` Added `+` and `-` unary expressions
+
 ### 1.1.0
 
 ` - ` Added call expressions with `=>`
