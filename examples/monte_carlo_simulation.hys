@@ -12,7 +12,7 @@ mcs = >- n {
         y   Math.random() * 10 - 5
     }
 
-    current <~~ 1..n -? {
+    current <: 1..n -? {
         current++
         pos = newPos()
 
