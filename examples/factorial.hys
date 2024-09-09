@@ -2,7 +2,7 @@
 factorial = >- n {
     // computing
     r = 1
-    c <~~ 1..n -? r *= c
+    c <: 1..n -? r *= c
 
     // returning
     <- r
