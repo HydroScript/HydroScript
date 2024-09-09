@@ -39,12 +39,12 @@ parseInput = >- str {
 }
 randInput = >- Math.abs(Math.round(Math.random() * 8.9999999 - 0.5))
 personWon = >- from {
-    i <~~ 0..2 -? (
+    i <: 0..2 -? (
         from[i * 3] == from[i * 3 + 1] &&
         from[i * 3 + 1] == from[i * 3 + 2] &&
         from[i * 3] != null
     ) ? <- from[i * 3]
-    j <~~ 0..2 -? (
+    j <: 0..2 -? (
         from[j] == from[3 + j] &&
         from[3 + j] == from[6 + j] &&
         from[j] != null
