@@ -7,7 +7,7 @@ fibonacci = >- n {
     values = [ 1 1 ]
 
     // computing
-    c <~~ 3..n -? {
+    c <: 3..n -? {
         pull = values[0]
         values[0] = values[0] + values[1]
         values[1] = pull
